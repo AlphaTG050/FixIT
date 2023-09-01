@@ -1,0 +1,1 @@
+The "Assets/sound" folder is a directory where sound and audio files are stored within a project. It serves as a designated location for organizing and managing all audio resources used in the project.
