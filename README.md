@@ -24,3 +24,4 @@ AlphaTG050 - Head of Development
 
 ## Script
 Language: AutoIT
+test
