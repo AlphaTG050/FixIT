@@ -19,7 +19,7 @@ With FixIT, the goal was to make the entire process effortless. Just select the 
 
 
 # Infos
-## Developmentteam
+## Development Team
 AlphaTG050 - Head of Development
 
 ## Script
