@@ -1,0 +1,1 @@
+In the context of software development and scripting, a "Config" folder (or directory) usually refers to a location that contains configuration files. These files allow users or administrators to customize and configure the behavior of software or scripts. Configuration files can be in various formats, such as XML, JSON, INI, YAML, etc.
