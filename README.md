@@ -16,3 +16,11 @@ Installing each program individually, configuring settings, and ensuring that ev
 That's when the idea of FixIT was born. The vision was simple yet powerful: to create a tool that would automate the process of reinstalling essential software on a Windows PC. This tool would save users the hassle of manually hunting down software installers, making choices during installation, and dealing with compatibility issues.
 
 With FixIT, the goal was to make the entire process effortless. Just select the software you need, customize the installation preferences if you wish, and let the software handle the rest. It would not only save time but also ensure that your PC is up and running with all your essential programs quickly.
+
+
+# Infos
+## Developmentteam
+AlphaTG050 - Head of Development
+
+## Script
+Language: AutoIT
