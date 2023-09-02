@@ -20,7 +20,8 @@ With FixIT, the goal was to make the entire process effortless. Just select the 
 
 # Infos
 ## Development Team
-AlphaTG050 - Head of Development
+AlphaTG - Head of Development
+LackAffe - Supporter
 
 ## Script
 Language: AutoIT
