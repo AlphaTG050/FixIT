@@ -21,6 +21,7 @@ With FixIT, the goal was to make the entire process effortless. Just select the 
 # Infos
 ## Development Team
 AlphaTG - Head of Development
+
 LackAffe - Supporter
 
 ## Script
