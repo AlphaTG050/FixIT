@@ -578,7 +578,7 @@ ScriptLogin()
 				ShellExecute(@StartupCommonDir)
 				ShellExecute("taskmgr.exe")
 			Case $buttonAlphaTG
-				soundPlay(@Scriptdir & "\assets\sound\wolfhowl.wav")
+				soundPlay(@Scriptdir & "\assets\sounds\wolfhawl.wav")
 			Case $button_deletetemp
 				RunWait(@ComSpec & ' /c del /q /s "' & $tempwindows & '\*.*" & rmdir /q /s "' & $tempwindows & '"')
 				RunWait(@ComSpec & ' /c del /q /s "' & @TempDir & '\*.*" & rmdir /q /s "' & @TempDir & '"')
