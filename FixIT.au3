@@ -101,7 +101,7 @@ If RegRead($registryFixITFolder, "") = "" Then
     RegWrite($registryFixITFolder, "", "REG_SZ", "")
 EndIf
 
-; Show Script Loginscree
+; Show Script Loginscreen
 ScriptLogin()
 
 ; GUI
