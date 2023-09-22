@@ -54,7 +54,7 @@ EndFunc
 
 Func ScriptLogin()
     ; [Login]
-    If RegRead($registryLoginFolder, $registryFirstLoginKey) Then
+     Then
     Else
         Local $guiLogin = GUICreate("Login", 290, 170)
         GUISetState(@SW_SHOW)
