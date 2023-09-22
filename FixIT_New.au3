@@ -12,64 +12,69 @@
 #RequireAdmin
 
 ; Variables
-	; Colour
-	$White = 0xFFFFFF
-	$DarkGrey = 0x121212
-	$LightGrey = 0xDBDEE1
-	$Blue = 0x89CFF0
+; Farben
+Global $White = 0xFFFFFF
+Global $DarkGrey = 0x121212
+Global $LightGrey = 0xDBDEE1
+Global $Blue = 0x89CFF0
+; Registry
+Global $registryLoginFolder = "HKEY_CURRENT_USER\Software\FixIT"
+Global $registryFirstLoginKey = "FirstLoginCheck"
+Global $registryStandardKey = "(Standard)"
+
+; Create Regedit "FixIT"
+RegWrite("HKEY_CURRENT_USER\Software\FixIT", "", "REG_SZ", "")
 
 
 
-
-; Login
-	; GUI
-	$LoginGUI = GUICreate("Login Screen", 350, 100)
-		; Layout
-			; Set background color
-			GUISetBkColor($DarkGrey, $LoginGUI)	
-	; Label
-	$KeyLabel = GUICtrlCreateLabel("Key", 20, 40, 200, 30)
-		; Layout
-			; Font Colour
-			GUICtrlSetColor($KeyLabel, $White)
-			; Font Size
-			GUICtrlSetFont($KeyLabel, 12, 700)
-	; Input
-	$LoginInput = GUICtrlCreateInput("", 85, 40, 150, 20)
-	; Button Submit
-	$SubmitButton = GUICtrlCreateButton("SUBMIT", 260, 35, 60, 30)
-		; Layout
-			; Font Colour
-			GUICtrlSetColor($SubmitButton, $White)
-			; Button Colour
-			GUICtrlSetBKColor($SubmitButton, $Blue)
-			; Font Size
-			GUICtrlSetFont($SubmitButton, 9, 700)
-	
-			GUISetState(@SW_SHOW)	
-				
+; Create Login GUI 
+$LoginGUI = GUICreate("Login Screen", 349, 100)
+GUISetBkColor($DarkGrey, $LoginGUI)
+; Key Label
+$KeyLabel = GUICtrlCreateLabel("Key:", 20, 40, 35, 30)
+GUICtrlSetColor($White, $KeyLabel)
+GUICtrlSetFont($KeyLabel, 12, 700)
+; Login Input
+$LoginInput = GUICtrlCreateInput("", 70, 40, 187, 20)
+GUICtrlSetLimit(25, $LoginInput)
+GUICtrlSetFont($LoginInput, 9, 700)
+; Button Submit
+$SubmitButton = GUICtrlCreateButton("SUBMIT", 270, 35, 60, 30)
+GUICtrlSetColor($DarkGrey, $SubmitButton)
+GUICtrlSetBKColor($Blue, $SubmitButton)
+GUICtrlSetFont($SubmitButton, 9, 700)
+GUISetState(@SW_SHOW)
 While 1
-	Switch GUIGetMsg()
-			Case $GUI_EVENT_CLOSE
-				Exit
-		EndSwitch
-	WEnd
+    Switch GUIGetMsg()
+        Case $GUI_EVENT_CLOSE
+            Exit  
+    EndSwitch
+WEnd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 ; Main GUI
 $MainGUI = GUICreate("FixIT", 800, 600)
-	; Show Main GUI
-	GUISetState(@SW_SHOW, $MainGUI)
-		; Layout
-			; Set background color
-			GUISetBkColor(0x121212, $MainGUI)
+GUISetBkColor(0x121212, $MainGUI)
+GUISetState(@SW_SHOW)
 
 While 1
     Switch GUIGetMsg()
         Case $GUI_EVENT_CLOSE
-            ExitLoop
+            Exit
     EndSwitch
 WEnd
-
-
