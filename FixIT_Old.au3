@@ -54,8 +54,6 @@ EndFunc
 
 Func ScriptLogin()
     ; [Login]
-     Then
-    Else
         Local $guiLogin = GUICreate("Login", 290, 170)
         GUISetState(@SW_SHOW)
 
@@ -87,7 +85,6 @@ Func ScriptLogin()
                     EndIf
             EndSwitch
         WEnd
-    EndIf
 EndFunc
 
 
