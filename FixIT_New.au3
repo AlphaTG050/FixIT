@@ -85,20 +85,6 @@ If Not RegRead($registryLoginFolder, $registryStandardKey) Then
 		EndIf
 		Return 0
 	EndFunc
-	Func ScissorsStonePaper()
-		Local $options[3] = ["Schere", "Stein", "Papier"]
-		Local $computerChoice = $options[Random(0, 2, 1)]
-		
-		; ScissorsStonePaperGUI
-		$ScissorsStonePaperGUI = GUICreate("ScissorsStonePaperButton", 300, 100)
-		GUISetState(@SW_SHOW, $ScissorsStonePaperGUI)
-			; Layout
-			GUISetBkColor($DarkGrey, $ScissorsStonePaperGUI)
-		
-		
-
-
-	EndFunc
 
 	
 ; Main GUI
@@ -122,20 +108,13 @@ GUISetState(@SW_SHOW, $MainGUI)
 		$BottomLeftSenkrechtLine = GUICtrlCreateLabel("", 0, 505, 250, 10)
 		; Layout
 		GUICtrlSetBkColor($BottomLeftSenkrechtLine, $Black)
-; Button
-	; Scissors, Stone, Paper
-		$ScissorsStonePaperButton = GUICtrlCreateButton("Scissors, Stone, Paper", 300, 25, 125, 30)
-		; Layout
-		GUICtrlSetBkColor($ScissorsStonePaperButton, $Black)
-		GUICtrlSetColor($ScissorsStonePaperButton, $white)
+
 
 	
 While 1
 	Switch GUIGetMsg()
 		Case $GUI_EVENT_CLOSE
 			Exit
-		Case $ScissorsStonePaperButton
-			ScissorsStonePaper()
 	EndSwitch
 WEnd
 
