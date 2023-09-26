@@ -89,7 +89,7 @@ If Not RegRead($registryLoginFolder, $registryStandardKey) Then
 	
 ; Main GUI
 $MainGUI = GUICreate("FixIT", 1000, 600)
-GUISetBkColor(0x121212, $MainGUI)
+GUISetBkColor($DarkGrey, $MainGUI)
 GUISetState(@SW_SHOW, $MainGUI)
 ; Line
 	; Left Senkrecht Line
@@ -108,6 +108,30 @@ GUISetState(@SW_SHOW, $MainGUI)
 		$BottomLeftSenkrechtLine = GUICtrlCreateLabel("", 0, 505, 250, 10)
 		; Layout
 		GUICtrlSetBkColor($BottomLeftSenkrechtLine, $Black)
+
+; Images
+	; Package
+	$PackageIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Package\Package.ico", 0, 25, 105, 50, 50)
+	; Function
+	$FunctionIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Function\Function.ico", 0, 25, 175, 45, 45)
+	; Team
+	$TeamIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Team\Team.ico", 0, 22, 250, 55, 55)
+
+; Text
+	; Package
+	$PackageText = GUICtrlCreateLabel("Package", 90, 120, 75, 50)
+	GUICtrlSetColor($PackageText, $LightGrey)
+	GUICtrlSetFont($PackageText, 14, 700)
+	; Function
+	$FunctionText = GUICtrlCreateLabel("Function", 90, 190, 75, 50)
+	GUICtrlSetColor($FunctionText, $LightGrey)
+	GUICtrlSetFont($FunctionText, 14, 700)
+	; Team
+	$TeamText = GUICtrlCreateLabel("Team", 100, 270, 75, 50)
+	GUICtrlSetColor($TeamText, $LightGrey)
+	GUICtrlSetFont($TeamText, 14, 700)
+
+
 
 
 	
