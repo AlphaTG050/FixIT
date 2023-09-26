@@ -111,15 +111,15 @@ GUISetState(@SW_SHOW, $MainGUI)
 
 ; Images
 	; Package
-	$PackageIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Package\Package.ico", 0, 25, 105, 50, 50)
+;	$PackageIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Package\Package.ico", 0, 25, 105, 50, 50)
 	; Function
-	$FunctionIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Function\Function.ico", 0, 25, 175, 45, 45)
+;	$FunctionIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Function\Function.ico", 0, 25, 175, 45, 45)
 	; Team
-	$TeamIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Team\Team.ico", 0, 22, 250, 55, 55)
+;	$TeamIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Team\Team.ico", 0, 22, 250, 55, 55)
 
 ; Text
 	; Package
-	$PackageText = GUICtrlCreateLabel("Package", 90, 120, 75, 50)
+	$PackageText = GUICtrlCreateLabel("Package", 90, 130, 75, 50)
 	GUICtrlSetColor($PackageText, $LightGrey)
 	GUICtrlSetFont($PackageText, 14, 700)
 	; Function
@@ -127,7 +127,7 @@ GUISetState(@SW_SHOW, $MainGUI)
 	GUICtrlSetColor($FunctionText, $LightGrey)
 	GUICtrlSetFont($FunctionText, 14, 700)
 	; Team
-	$TeamText = GUICtrlCreateLabel("Team", 100, 270, 75, 50)
+	$TeamText = GUICtrlCreateLabel("Team", 102, 250, 75, 50)
 	GUICtrlSetColor($TeamText, $LightGrey)
 	GUICtrlSetFont($TeamText, 14, 700)
 
