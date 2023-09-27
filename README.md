@@ -1,3 +1,5 @@
+![FixIT_Logo](https://github.com/AlphaTG050/FixIT/assets/143801424/bc396864-cce1-436f-ba8d-5e5f15fa4e65)
+
 # FixIT
 
 # What is FixIT?
