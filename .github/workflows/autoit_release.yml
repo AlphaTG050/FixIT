@@ -1,0 +1,38 @@
+name: AutoIt Release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Generate Changelog
+        run: |
+          # Hier generierst du automatisch den Changelog
+          auto-changelog
+          git add CHANGELOG.md
+          git commit -m "Update CHANGELOG.md"
+        shell: bash
+
+      - name: Create Release Zip
+        run: |
+          # Hier erstellst du eine Zip-Datei mit der aktuellen Version
+          # und fügst alle benötigten Dateien hinzu
+          zip -r DeinReleaseName.zip *
+        shell: bash
+
+      - name: Upload Changelog and Release Zip
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: DeinReleaseName.zip, CHANGELOG.md
+          asset_name: DeinReleaseName.zip, CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
