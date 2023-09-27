@@ -29,7 +29,9 @@ Language: AutoIT
 
 ___________________________
 
-## What´s new? - 27.08.2023
-# Changed
+# What´s new? - 27.08.2023
+## Changed
 
-# Fixed
+## Fixed
+
+___________________________
