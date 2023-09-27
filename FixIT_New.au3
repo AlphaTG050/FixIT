@@ -86,8 +86,49 @@ If Not RegRead($registryLoginFolder, $registryStandardKey) Then
 		Return 0
 	EndFunc
 Func SettingsGUI()
-	$GUISettings = GUICreate("Settings", 500, 500)
+	$GUISettings = GUICreate("Settings", 800, 500)
+	GUISetBkColor($DarkGrey, $GUISettings)
+	
+	; Line
+	$MiddleVerticalLine = GUICtrlCreateLabel("", 392, 0, 8, 500)
+	GUICtrlSetBkColor($MiddleVerticalLine, $Black)
+
+	; Label
+	$OperatingSystemText = GUICtrlCreateLabel("Operation System:", 20, 50, 160, 500)
+	GUICtrlSetColor($OperatingSystemText, $LightGrey)
+	GUICtrlSetFont($OperatingSystemText, 12, 700)
+
+	; Operating System
+	$OperatingSystemVariable = GUICtrlCreateLabel(@OSVersion & " " & @OSArch, 180, 50, 160, 500)
+	GUICtrlSetColor($OperatingSystemVariable, $Blue)
+	GUICtrlSetFont($OperatingSystemVariable, 12, 700)
+
+	; Username
+	$UsernameText = GUICtrlCreateLabel("Username:", 20, 100, 160, 500)
+	GUICtrlSetColor($UsernameText, $LightGrey)
+	GUICtrlSetFont($UsernameText, 12, 700)
+
+	; Username
+	$UsernameVariable = GUICtrlCreateLabel(@UserName, 180, 100, 160, 500)
+	GUICtrlSetColor($UsernameVariable, $Blue)
+	GUICtrlSetFont($UsernameVariable, 12, 700)
+
+	; Computername
+	$ComputernameText = GUICtrlCreateLabel("Computername:", 20, 150, 160, 500)
+	GUICtrlSetColor($ComputernameText, $LightGrey)
+	GUICtrlSetFont($ComputernameText, 12, 700)
+
+	; Computername
+	$UsernameVariable = GUICtrlCreateLabel(@Computername, 180, 150, 160, 500)
+	GUICtrlSetColor($UsernameVariable, $Blue)
+	GUICtrlSetFont($UsernameVariable, 12, 700)
+
+
+
+
 	GUISetState(@SW_SHOW, $GUISettings)
+
+
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
@@ -98,7 +139,29 @@ Func SettingsGUI()
 
 
 EndFunc
-	
+Func GetDeviceInformation()
+    Local $objWMIService = ObjGet("winmgmts:\\.\root\cimv2")
+    If Not IsObj($objWMIService) Then
+        MsgBox(16, "Fehler", "Fehler beim Zugriff auf WMI.")
+        Return ""
+    EndIf
+
+    Local $colItems = $objWMIService.ExecQuery("SELECT * FROM Win32_ComputerSystem", "WQL")
+
+    Local $sGeratemarke = ""
+    Local $sGeratemodell = ""
+
+    ; Informationen auslesen
+    For $objItem In $colItems
+        $sGeratemarke = $objItem.Manufacturer
+        $sGeratemodell = $objItem.Model
+        ExitLoop ; Wir haben die Informationen erhalten, daher die Schleife verlassen
+    Next
+
+    Return $sGeratemarke & "|" & $sGeratemodell
+EndFunc
+
+
 ; Main GUI
 $MainGUI = GUICreate("FixIT", 1000, 600)
 GUISetBkColor($DarkGrey, $MainGUI)
@@ -159,7 +222,8 @@ While 1
 			Exit
 			Case $SettingsText
 				SettingsGUI()
-
+			Case $SettingsIcon
+				SettingsGUI()
 	EndSwitch
 WEnd
 
