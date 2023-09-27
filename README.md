@@ -1,4 +1,4 @@
-![FixIT_Logo](https://github.com/AlphaTG050/FixIT/assets/143801424/bc396864-cce1-436f-ba8d-5e5f15fa4e65)
+![FixIT_Logo_50](https://github.com/AlphaTG050/FixIT/assets/143801424/f9093088-b22e-45fc-8c2d-65d06a3f53f7)
 
 # FixIT
 
