@@ -27,6 +27,8 @@ LackAffe - Supporter
 ## Script
 Language: AutoIT
 
+
+
 ## What´s new? - 27.08.2023
 # Changed
 
