@@ -85,7 +85,19 @@ If Not RegRead($registryLoginFolder, $registryStandardKey) Then
 		EndIf
 		Return 0
 	EndFunc
+Func SettingsGUI()
+	$GUISettings = GUICreate("Settings", 500, 500)
+	GUISetState(@SW_SHOW, $GUISettings)
+	While 1
+		Switch GUIGetMsg()
+			Case $GUI_EVENT_CLOSE
+				GUIDelete($GUISettings)
+				ExitLoop
+		EndSwitch
+	WEnd
 
+
+EndFunc
 	
 ; Main GUI
 $MainGUI = GUICreate("FixIT", 1000, 600)
@@ -110,6 +122,8 @@ GUISetState(@SW_SHOW, $MainGUI)
 		GUICtrlSetBkColor($BottomLeftSenkrechtLine, $Black)
 
 ; Images
+	; Settings
+	$SettingsIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Settings\Settings.ico", 0, 25, 455, 35, 35)
 	; Package
 ;	$PackageIcon = GUICtrlCreateIcon(@Scriptdir & "\assets\images\Package\Package.ico", 0, 25, 105, 50, 50)
 	; Function
@@ -130,6 +144,10 @@ GUISetState(@SW_SHOW, $MainGUI)
 	$TeamText = GUICtrlCreateLabel("Team", 102, 250, 75, 50)
 	GUICtrlSetColor($TeamText, $LightGrey)
 	GUICtrlSetFont($TeamText, 14, 700)
+	; Settings
+	$SettingsText = GUICtrlCreateLabel("Settings", 75, 462, 75, 25)
+	GUICtrlSetColor($SettingsText, $LightGrey)
+	GUICtrlSetFont($SettingsText, 14, 700)
 
 
 
@@ -139,6 +157,9 @@ While 1
 	Switch GUIGetMsg()
 		Case $GUI_EVENT_CLOSE
 			Exit
+			Case $SettingsText
+				SettingsGUI()
+
 	EndSwitch
 WEnd
 
