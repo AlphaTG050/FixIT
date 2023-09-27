@@ -1,4 +1,4 @@
-![FixIT_Logo](https://github.com/AlphaTG050/FixIT/assets/143801424/bc396864-cce1-436f-ba8d-5e5f15fa4e65)
+![FixIT_Logo_50](https://github.com/AlphaTG050/FixIT/assets/143801424/32bea4f5-745d-442e-bd95-e0f2ba036a93)
 
 ## Authors
 - [@alphatg050](https://www.github.com/alphatg050) - Head of Development
