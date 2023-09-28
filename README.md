@@ -1,28 +1,15 @@
-# FixIT
+![FixIT_Logo_50](https://github.com/AlphaTG050/FixIT/assets/143801424/32bea4f5-745d-442e-bd95-e0f2ba036a93)
 
-# What is FixIT?
-Are you looking for a versatile solution to simplify your Windows experience? Look no further! FixIT is here to revolutionize the way you interact with your PC.
-FixIT is an all-in-one multitool designed to make your life easier in the Windows environment. Whether you're a casual user or a power user, our software provides an array of essential tools and features to enhance your productivity and streamline your tasks.
+## Authors
+- [@alphatg050](https://www.github.com/alphatg050) - Head of Development
+## Support
+Connect me if you want access to FixIT or Support - [@alphatg050](https://www.github.com/alphatg050)
+## Download
+ | Release|
+ | ----------- |
+ | [FixIT](https://github.com/AlphaTG050/FixIT/releases) |
 
-# The Genesis of FixIT:
-Ever found yourself in the routine of periodically refreshing your PC, only to realize that the time-consuming process of reinstalling all your essential software takes forever? We've been there too, and that's why FixIT came to life.
-
-# The Origin of the Idea:
-The seed for FixIT was sown during one of those moments when I decided it was time to give my PC a fresh start. While reinstalling the Windows operating system was relatively straightforward, the real headache came with the reinstallation of all the software I rely on daily.
-
-Installing each program individually, configuring settings, and ensuring that everything was up to date was a painstaking and time-consuming process. I thought, "There must be a better way to do this."
-
-# The Vision:
-That's when the idea of FixIT was born. The vision was simple yet powerful: to create a tool that would automate the process of reinstalling essential software on a Windows PC. This tool would save users the hassle of manually hunting down software installers, making choices during installation, and dealing with compatibility issues.
-
-With FixIT, the goal was to make the entire process effortless. Just select the software you need, customize the installation preferences if you wish, and let the software handle the rest. It would not only save time but also ensure that your PC is up and running with all your essential programs quickly.
+## Donation
+[![Donate with PayPal](https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=XUD4G6WDD8FKJ)
 
 
-# Infos
-## Development Team
-AlphaTG - Head of Development
-
-LackAffe - Supporter
-
-## Script
-Language: AutoIT
