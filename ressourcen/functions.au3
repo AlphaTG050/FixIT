@@ -10,6 +10,7 @@
 #include "EditConstants.au3"
 #include "Crypt.au3"
 
+
 ; Login
 Func Login()
     ; LoginGUI
@@ -24,6 +25,7 @@ Func Login()
             ; Layout
             GUICtrlSetColor($KeyLabel, $White)
             GUICtrlSetFont($KeyLabel, 12, 700)
+    ; Input
         ; Login
         $LoginInput = GUICtrlCreateInput("", 70, 40, 187, 20)
         GUICtrlSetLimit($LoginInput, 25)
@@ -44,7 +46,7 @@ While 1
         Case $SubmitButton
             $inputText = GUICtrlRead($LoginInput)
             If StringInStr($inputText, "Development") Then
-                RegWrite($registryLoginFolder, $registryFirstLoginKey, "REG_SZ", $registryStandardKey)
+                RegWrite($FixITRegistryFolder, $FirstLoginRegistryKey, "REG_SZ", $registryStandardKey)
                 GUIDelete($LoginGUI)
                 ExitLoop
             Else
@@ -59,12 +61,15 @@ WEnd
 EndFunc
 
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> 448089441f452090d275dae27a02ac09fda28b80
 ; Login [ENTER] Key
 Func IsPressedEnterLogin($sHexKey)
     Local $aResult = DllCall("user32.dll", "short", "GetAsyncKeyState", "int", "0x" & $sHexKey)
@@ -74,58 +79,56 @@ Func IsPressedEnterLogin($sHexKey)
     Return 0
 EndFunc
 
+
 ; SettingsGUI
 Func SettingsGUI()
-	$GUISettings = GUICreate("Settings", 800, 500)
-	GUISetBkColor($DarkGrey, $GUISettings)
-	
-	; Line
-	$MiddleVerticalLine = GUICtrlCreateLabel("", 392, 0, 8, 500)
-	GUICtrlSetBkColor($MiddleVerticalLine, $Black)
+    ; SettingsGUI
+    Local $SettingsGUI = GUICreate("Settings", 600, 400)
+    GUISetState(@SW_SHOW, $SettingsGUI)
+        ; Layout
+        GUISetBkColor($DarkGrey, $SettingsGUI)
+    ; Button
+        ; AutoStart
+        $AutoStartButtonAdd = GUICtrlCreateButton("AutoStart aktivieren", 200, 50, 200, 30)
+        $AutoStartButtonRemove = GUICtrlCreateButton("AutoStart deaktivieren", 200, 100, 200, 30)
 
-	; Label
-	$OperatingSystemText = GUICtrlCreateLabel("Operation System:", 20, 50, 160, 500)
-	GUICtrlSetColor($OperatingSystemText, $LightGrey)
-	GUICtrlSetFont($OperatingSystemText, 12, 700)
-
-	; Operating System
-	$OperatingSystemVariable = GUICtrlCreateLabel(@OSVersion & " " & @OSArch, 180, 50, 160, 500)
-	GUICtrlSetColor($OperatingSystemVariable, $Blue)
-	GUICtrlSetFont($OperatingSystemVariable, 12, 700)
-
-	; Username
-	$UsernameText = GUICtrlCreateLabel("Username:", 20, 100, 160, 500)
-	GUICtrlSetColor($UsernameText, $LightGrey)
-	GUICtrlSetFont($UsernameText, 12, 700)
-
-	; Username
-	$UsernameVariable = GUICtrlCreateLabel(@UserName, 180, 100, 160, 500)
-	GUICtrlSetColor($UsernameVariable, $Blue)
-	GUICtrlSetFont($UsernameVariable, 12, 700)
-
-	; Computername
-	$ComputernameText = GUICtrlCreateLabel("Computername:", 20, 150, 160, 500)
-	GUICtrlSetColor($ComputernameText, $LightGrey)
-	GUICtrlSetFont($ComputernameText, 12, 700)
-
-	; Computername
-	$UsernameVariable = GUICtrlCreateLabel(@Computername, 180, 150, 160, 500)
-	GUICtrlSetColor($UsernameVariable, $Blue)
-	GUICtrlSetFont($UsernameVariable, 12, 700)
+  
+    While 1
+        Switch GUIGetMsg()
+            Case $GUI_EVENT_CLOSE
+                GUIDelete($SettingsGUI)
+                ExitLoop
+            Case $AutoStartButtonAdd
+                RegWrite("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", "FixIT", "REG_SZ", @ScriptDir & "\" & @ScriptName)
+            Case $AutoStartButtonRemove
+                RegDelete("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", "FixIT")
+        EndSwitch
+    WEnd
+EndFunc
 
 
 
+; FunctionGUI
+Func FunctionGUI()
+    ; FunctionGUI
+    Local $FunctionGUI = GUICreate("Function", 600, 400)
+    GUISetState(@SW_SHOW, $FunctionGUI)
+        ; Layout
+        GUISetBkColor($DarkGrey, $FunctionGUI)
+    ; Button
+        ; Refresh Button
+        Local $RefreshButton = GUICtrlCreateButton("Refresh", 500, 50, 100, 100)
 
-	GUISetState(@SW_SHOW, $GUISettings)
 
-
-	While 1
-		Switch GUIGetMsg()
-			Case $GUI_EVENT_CLOSE
-				GUIDelete($GUISettings)
-				ExitLoop
-		EndSwitch
-	WEnd
-
-
+    While 1
+        Switch GUIGetMsg()
+            Case $GUI_EVENT_CLOSE
+                GUIDelete($FunctionGUI)
+                ExitLoop
+            Case $RefreshButton
+                GUIDelete($FunctionGUI)
+                FunctionGUI()
+                ExitLoop
+        EndSwitch
+    WEnd
 EndFunc
