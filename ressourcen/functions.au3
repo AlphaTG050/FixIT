@@ -65,7 +65,6 @@ EndFunc
 
 
 
-
 ; Login [ENTER] Key
 Func IsPressedEnterLogin($sHexKey)
     Local $aResult = DllCall("user32.dll", "short", "GetAsyncKeyState", "int", "0x" & $sHexKey)
