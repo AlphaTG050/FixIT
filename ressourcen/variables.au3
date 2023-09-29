@@ -33,12 +33,11 @@ Global $SettingsGUI
 
 ; Line
 Global $Line1
-Global $Line2
-Global $Line3
-Global $Line4
 
 ; Label
 Global $KeyLabel
+Global $PackageLabel
+Global $SettingsLabel
 
 ; Buttons
 Global $SubmitButton
@@ -48,4 +47,9 @@ Global $FunctionButton
 Global $TeamButton
 Global $AutoStartButtonAdd
 Global $AutoStartButtonRemove
+
+; Images
+Global $SettingsImage
+Global $PackageImage
+Global $FunctionsImage
 

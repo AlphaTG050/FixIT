@@ -10,6 +10,19 @@
 #include "EditConstants.au3"
 #include "Crypt.au3"
 
+Func UpdateAutoStartButtons()
+    $AutoStartEntry = "FixIT"
+    If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) = @ScriptDir & "\" & @ScriptName Then
+        ; Eintrag ist vorhanden, deaktiviere den Button zum Hinzufügen und aktiviere den Button zum Entfernen
+        GUICtrlSetState($AutoStartButtonAdd, $GUI_DISABLE)
+        GUICtrlSetState($AutoStartButtonRemove, $GUI_ENABLE)
+    Else
+        ; Eintrag ist nicht vorhanden, aktiviere den Button zum Hinzufügen und deaktiviere den Button zum Entfernen
+        GUICtrlSetState($AutoStartButtonAdd, $GUI_ENABLE)
+        GUICtrlSetState($AutoStartButtonRemove, $GUI_DISABLE)
+    EndIf
+EndFunc
+
 
 ; Login
 Func Login()
@@ -78,47 +91,35 @@ Func SettingsGUI()
         ; Layout
         GUISetBkColor($DarkGrey, $SettingsGUI)
     ; Button
-        ; AutoStart
-        $AutoStartButtonAdd = GUICtrlCreateButton("AutoStart aktivieren", 200, 50, 200, 30)
+        ; AutoStart Add
+        $AutoStartButtonAdd = GUICtrlCreateButton("AutoStart aktivieren", 0, 25, 125, 30)
+        ; AutoStart Remove
         $AutoStartButtonRemove = GUICtrlCreateButton("AutoStart deaktivieren", 200, 100, 200, 30)
 
-  
-    While 1
-        Switch GUIGetMsg()
-            Case $GUI_EVENT_CLOSE
-                GUIDelete($SettingsGUI)
-                ExitLoop
-            Case $AutoStartButtonAdd
-                RegWrite("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", "FixIT", "REG_SZ", @ScriptDir & "\" & @ScriptName)
-            Case $AutoStartButtonRemove
-                RegDelete("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", "FixIT")
-        EndSwitch
-    WEnd
-EndFunc
+; Überprüfe den Status beim GUI-Öffnen
+UpdateAutoStartButtons()
 
-
-
-; FunctionGUI
-Func FunctionGUI()
-    ; FunctionGUI
-    Local $FunctionGUI = GUICreate("Function", 600, 400)
-    GUISetState(@SW_SHOW, $FunctionGUI)
-        ; Layout
-        GUISetBkColor($DarkGrey, $FunctionGUI)
-    ; Button
-        ; Refresh Button
-        Local $RefreshButton = GUICtrlCreateButton("Refresh", 500, 50, 100, 100)
-
-
-    While 1
-        Switch GUIGetMsg()
-            Case $GUI_EVENT_CLOSE
-                GUIDelete($FunctionGUI)
-                ExitLoop
-            Case $RefreshButton
-                GUIDelete($FunctionGUI)
-                FunctionGUI()
-                ExitLoop
-        EndSwitch
-    WEnd
+While 1
+    Switch GUIGetMsg()
+        Case $GUI_EVENT_CLOSE
+            GUIDelete($SettingsGUI)
+            ExitLoop
+        Case $AutoStartButtonAdd
+            $AutoStartEntry = "FixIT"
+            If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) <> @ScriptDir & "\" & @ScriptName Then
+                ; Eintrag ist nicht vorhanden, füge ihn hinzu
+                RegWrite("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry, "REG_SZ", @ScriptDir & "\" & @ScriptName)
+            EndIf
+            ; Aktualisiere die Schaltflächen
+            UpdateAutoStartButtons()
+        Case $AutoStartButtonRemove
+            $AutoStartEntry = "FixIT"
+            If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) = @ScriptDir & "\" & @ScriptName Then
+                ; Eintrag ist vorhanden, entferne ihn
+                RegDelete("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry)
+            EndIf
+            ; Aktualisiere die Schaltflächen
+            UpdateAutoStartButtons()
+    EndSwitch
+WEnd
 EndFunc

@@ -38,19 +38,48 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 
 ; Buttons
 	; Package
-	Global $PackageButton = GUICtrlCreateButton("Packages", 50, 150, 200, 75)
-	Global $FunctionButton = GUICtrlCreateButton("Functions", 275, 150, 200, 75)
-	Global $TeamButton = GUICtrlCreateButton("Team", 500, 150, 200, 75)
-	Global $SettingsButton = GUICtrlCreateButton("Settings", 725, 150, 200, 75)
+	;Global $PackageButton = GUICtrlCreateButton("Packages", 50, 150, 200, 75)
+	;Global $FunctionButton = GUICtrlCreateButton("Functions", 275, 150, 200, 75)
+	;Global $TeamButton = GUICtrlCreateButton("Team", 500, 150, 200, 75)
+	;Global $SettingsButton = GUICtrlCreateButton("Settings", 725, 150, 200, 75)
 
+; Images
+	; Package
+	$PackageImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Package\Package.jpg", 163, 55, 125, 125)
+	; Functions
+	$FunctionsImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Functions\Functions.jpg", 437, 55, 125, 125)
+	; Settings
+	$SettingsImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Settings\Settings.jpg", 712, 55, 125, 125)
+
+; Label
+	; Package	
+	$PackageLabel = GUICtrlCreateLabel("Package Installer", 150, 190, 150, 35)
+		; Layout
+		GUICtrlSetColor($PackageLabel, $White)
+		GUICtrlSetFont($PackageLabel, 14, 800, "", "Arial")
+	; Functions
+		$FunctionsLabel = GUICtrlCreateLabel("Functions", 454, 190, 150, 35)
+		; Layout
+		GUICtrlSetColor($FunctionsLabel, $White)
+		GUICtrlSetFont($FunctionsLabel, 14, 800, "", "Arial")
+	; Settings
+	$SettingsLabel = GUICtrlCreateLabel("Settings", 737, 190, 150, 35)
+		; Layout
+		GUICtrlSetColor($SettingsLabel, $White)
+		GUICtrlSetFont($SettingsLabel, 14, 800, "", "Arial")
+	
+	
+	
+; Line
+	$Line1 = GUICtrlCreateLabel("", 10, 250, 1020, 1.5)
+	; Layout
+	GUICtrlSetBkColor($Line1, $white)
 
 	While 1
 		Switch GUIGetMsg()
 			Case $GUI_EVENT_CLOSE
 				Exit
-			Case $FunctionButton
-				FunctionGUI()
-			Case $SettingsButton
+			Case $SettingsImage
 				SettingsGUI()
 		EndSwitch
 	WEnd
