@@ -36,13 +36,6 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 		; Layout
 		GUISetBkColor($DarkGrey, $MainGUI)
 
-; Buttons
-	; Package
-	;Global $PackageButton = GUICtrlCreateButton("Packages", 50, 150, 200, 75)
-	;Global $FunctionButton = GUICtrlCreateButton("Functions", 275, 150, 200, 75)
-	;Global $TeamButton = GUICtrlCreateButton("Team", 500, 150, 200, 75)
-	;Global $SettingsButton = GUICtrlCreateButton("Settings", 725, 150, 200, 75)
-
 ; Images
 	; Package
 	$PackageImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Package\Package.jpg", 163, 55, 125, 125)
@@ -50,6 +43,12 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 	$FunctionsImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Functions\Functions.jpg", 437, 55, 125, 125)
 	; Settings
 	$SettingsImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Settings\Settings.jpg", 712, 55, 125, 125)
+	; Reload
+	$ReloadImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Reload\Reload.jpg", 925, 10, 50, 50)
+	; Southpark
+		; AlphaTG
+		$AlphaTGImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\southpark\AlphaTG.jpg", 375, 320, 250, 250)
+
 
 ; Label
 	; Package	
@@ -67,9 +66,18 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 		; Layout
 		GUICtrlSetColor($SettingsLabel, $White)
 		GUICtrlSetFont($SettingsLabel, 14, 800, "", "Arial")
-	
-	
-	
+	; AlphaTG
+		$AlphaTGLabel = GUICtrlCreateLabel("AlphaTG", 450, 270, 120, 30)
+		; Layout
+		GUICtrlSetColor($AlphaTGLabel, $Blue)
+		GUICtrlSetFont($AlphaTGLabel, 18, 800, "", "Arial")
+	; Head of Development
+		$HeadofDevelopment = GUICtrlCreateLabel("Head of Development", 446, 300, 120, 15)
+		; Layout
+		GUICtrlSetColor($HeadofDevelopment, $Lightgrey)
+		GUICtrlSetFont($HeadofDevelopment, 8, 800, "", "Arial")
+		
+
 ; Line
 	$Line1 = GUICtrlCreateLabel("", 10, 250, 1020, 1.5)
 	; Layout

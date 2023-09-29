@@ -38,6 +38,7 @@ Global $Line1
 Global $KeyLabel
 Global $PackageLabel
 Global $SettingsLabel
+Global $AlphaTGLabel
 
 ; Buttons
 Global $SubmitButton
@@ -52,4 +53,5 @@ Global $AutoStartButtonRemove
 Global $SettingsImage
 Global $PackageImage
 Global $FunctionsImage
+Global $ReloadImage
 
