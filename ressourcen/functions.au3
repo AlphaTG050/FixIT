@@ -73,21 +73,6 @@ EndFunc
 
 
 
-Func MinimizeToSystemTray()
-    ; Minimieren des aktuellen Fensters in die System-Symbolleiste
-    WinSetState("[ACTIVE]", "", @SW_MINIMIZE)
-    ; Warten, bis das Fenster minimiert wurde
-    WinWait("[ACTIVE]", "", 10)
-    ; Verstecken des Fensters aus der Taskleiste
-    WinSetState("[ACTIVE]", "", @SW_HIDE)
-EndFunc
-
-
-
-
-
-
-
 
 Func UpdateAutoStartButtons()
     $AutoStartEntry = "FixIT"

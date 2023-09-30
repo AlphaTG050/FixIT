@@ -17,6 +17,8 @@
 #include "ressourcen\functions.au3"
 #include "ressourcen\variables.au3"
 
+Opt("TrayOnEventMode", 1)
+
 
 ; Create Regedit "FixIT"
 If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
@@ -78,7 +80,15 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 		; Layout
 		GUICtrlSetColor($HeadofDevelopment, $Lightgrey)
 		GUICtrlSetFont($HeadofDevelopment, 8, 800, "", "Arial")
-		
+
+
+
+
+
+
+
+
+
 
 ; Line
 	$Line1 = GUICtrlCreateLabel("", 10, 250, 1020, 1.5)
@@ -92,6 +102,8 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 			Case $SettingsImage
 				SettingsGUI()
 			Case $MinimizeImage
-				MinimizeToSystemTray()
 		EndSwitch
 	WEnd
+
+
+
