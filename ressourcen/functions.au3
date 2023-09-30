@@ -10,6 +10,85 @@
 #include "EditConstants.au3"
 #include "Crypt.au3"
 
+; SettingsGUI
+Func SettingsGUI()
+    ; SettingsGUI
+    Local $SettingsGUI = GUICreate("Settings", 600, 400)
+    GUISetState(@SW_SHOW, $SettingsGUI)
+        ; Layout
+        GUISetBkColor($DarkGrey, $SettingsGUI)
+    ; Button
+        ; AutoStart Add
+        $AutoStartButtonAdd = GUICtrlCreateButton("Activated", 55, 40, 125, 30)
+            ; Layout
+            GUICtrlSetColor($AutoStartButtonAdd, $Blue)
+            GUICtrlSetBkColor($AutoStartButtonAdd, $DarkGrey)
+        ; AutoStart Remove
+        $AutoStartButtonRemove = GUICtrlCreateButton("Deactivate", 55, 75, 125, 30)
+            ; Layout
+            GUICtrlSetColor($AutoStartButtonRemove, $Blue)
+            GUICtrlSetBkColor($AutoStartButtonRemove, $DarkGrey)
+            
+; Image
+    ; AutoStart
+    $AutoStartImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\AutoStart\AutoStart.jpg", 3, 45, 50, 50)
+
+; Label
+    ; AutoStart
+	$AutoStartLabel = GUICtrlCreateLabel("AutoStart", 20, 13, 90, 20)
+    ; Layout
+    GUICtrlSetColor($AutoStartLabel, $Blue)
+    GUICtrlSetFont($AutoStartLabel, 14, 800, "", "Arial")
+
+
+; Überprüfe den Status beim GUI-Öffnen
+UpdateAutoStartButtons()
+
+While 1
+    Switch GUIGetMsg()
+        Case $GUI_EVENT_CLOSE
+            GUIDelete($SettingsGUI)
+            ExitLoop
+        Case $AutoStartButtonAdd
+            $AutoStartEntry = "FixIT"
+            If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) <> @ScriptDir & "\" & @ScriptName Then
+                ; Eintrag ist nicht vorhanden, füge ihn hinzu
+                RegWrite("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry, "REG_SZ", @ScriptDir & "\" & @ScriptName)
+            EndIf
+            ; Aktualisiere die Schaltflächen
+            UpdateAutoStartButtons()
+        Case $AutoStartButtonRemove
+            $AutoStartEntry = "FixIT"
+            If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) = @ScriptDir & "\" & @ScriptName Then
+                ; Eintrag ist vorhanden, entferne ihn
+                RegDelete("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry)
+            EndIf
+            ; Aktualisiere die Schaltflächen
+            UpdateAutoStartButtons()
+    EndSwitch
+WEnd
+EndFunc
+
+
+
+
+
+Func MinimizeToSystemTray()
+    ; Minimieren des aktuellen Fensters in die System-Symbolleiste
+    WinSetState("[ACTIVE]", "", @SW_MINIMIZE)
+    ; Warten, bis das Fenster minimiert wurde
+    WinWait("[ACTIVE]", "", 10)
+    ; Verstecken des Fensters aus der Taskleiste
+    WinSetState("[ACTIVE]", "", @SW_HIDE)
+EndFunc
+
+
+
+
+
+
+
+
 Func UpdateAutoStartButtons()
     $AutoStartEntry = "FixIT"
     If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) = @ScriptDir & "\" & @ScriptName Then
@@ -83,48 +162,3 @@ Func IsPressedEnterLogin($sHexKey)
     Return 0
 EndFunc
 
-; SettingsGUI
-Func SettingsGUI()
-    ; SettingsGUI
-    Local $SettingsGUI = GUICreate("Settings", 600, 400)
-    GUISetState(@SW_SHOW, $SettingsGUI)
-        ; Layout
-        GUISetBkColor($DarkGrey, $SettingsGUI)
-    ; Button
-        ; AutoStart Add
-        $AutoStartButtonAdd = GUICtrlCreateButton("AutoStart aktivieren", 75, 5, 125, 30)
-        ; AutoStart Remove
-        $AutoStartButtonRemove = GUICtrlCreateButton("AutoStart deaktivieren", 75, 35, 125, 30)
-
-; Image
-    ; AutoStart
-    $AutoStartImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\AutoStart\AutoStart.jpg", 10, 10, 50, 50)
-
-
-; Überprüfe den Status beim GUI-Öffnen
-UpdateAutoStartButtons()
-
-While 1
-    Switch GUIGetMsg()
-        Case $GUI_EVENT_CLOSE
-            GUIDelete($SettingsGUI)
-            ExitLoop
-        Case $AutoStartButtonAdd
-            $AutoStartEntry = "FixIT"
-            If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) <> @ScriptDir & "\" & @ScriptName Then
-                ; Eintrag ist nicht vorhanden, füge ihn hinzu
-                RegWrite("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry, "REG_SZ", @ScriptDir & "\" & @ScriptName)
-            EndIf
-            ; Aktualisiere die Schaltflächen
-            UpdateAutoStartButtons()
-        Case $AutoStartButtonRemove
-            $AutoStartEntry = "FixIT"
-            If RegRead("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry) = @ScriptDir & "\" & @ScriptName Then
-                ; Eintrag ist vorhanden, entferne ihn
-                RegDelete("HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run", $AutoStartEntry)
-            EndIf
-            ; Aktualisiere die Schaltflächen
-            UpdateAutoStartButtons()
-    EndSwitch
-WEnd
-EndFunc

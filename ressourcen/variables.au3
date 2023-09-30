@@ -25,34 +25,5 @@ Global $FirstLoginRegistryKey = "FirstLoginCheck"
 Global $registryStandardKey = "(Standard)"
 Global $AutoStartRegEntry = "AutoStartCheckboxState"
 
-; GUI
-Global $MainGUI
-Global $LoginGUI
-Global $FunctionGUI
-Global $SettingsGUI
-
-; Line
-Global $Line1
-
-; Label
-Global $KeyLabel
-Global $PackageLabel
-Global $SettingsLabel
-Global $AlphaTGLabel
-
-; Buttons
-Global $SubmitButton
-Global $HomeButton
-Global $PackageButton
-Global $FunctionButton
-Global $TeamButton
 Global $AutoStartButtonAdd
 Global $AutoStartButtonRemove
-
-; Images
-Global $SettingsImage
-Global $PackageImage
-Global $FunctionsImage
-Global $ReloadImage
-Global $AutoStartImage
-
