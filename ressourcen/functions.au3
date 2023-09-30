@@ -83,7 +83,6 @@ Func IsPressedEnterLogin($sHexKey)
     Return 0
 EndFunc
 
-
 ; SettingsGUI
 Func SettingsGUI()
     ; SettingsGUI
@@ -93,9 +92,14 @@ Func SettingsGUI()
         GUISetBkColor($DarkGrey, $SettingsGUI)
     ; Button
         ; AutoStart Add
-        $AutoStartButtonAdd = GUICtrlCreateButton("AutoStart aktivieren", 0, 25, 125, 30)
+        $AutoStartButtonAdd = GUICtrlCreateButton("AutoStart aktivieren", 75, 5, 125, 30)
         ; AutoStart Remove
-        $AutoStartButtonRemove = GUICtrlCreateButton("AutoStart deaktivieren", 200, 100, 200, 30)
+        $AutoStartButtonRemove = GUICtrlCreateButton("AutoStart deaktivieren", 75, 35, 125, 30)
+
+; Image
+    ; AutoStart
+    $AutoStartImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\AutoStart\AutoStart.jpg", 10, 10, 50, 50)
+
 
 ; Überprüfe den Status beim GUI-Öffnen
 UpdateAutoStartButtons()

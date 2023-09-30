@@ -54,4 +54,5 @@ Global $SettingsImage
 Global $PackageImage
 Global $FunctionsImage
 Global $ReloadImage
+Global $AutoStartImage
 

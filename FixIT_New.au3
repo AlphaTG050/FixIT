@@ -45,6 +45,8 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 	$SettingsImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Settings\Settings.jpg", 712, 55, 125, 125)
 	; Reload
 	$ReloadImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Reload\Reload.jpg", 925, 10, 50, 50)
+	; Minmize
+	$MinmizeImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Minimize\Minimize.jpg", 925, 70, 50, 50)
 	; Southpark
 		; AlphaTG
 		$AlphaTGImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\southpark\AlphaTG.jpg", 375, 320, 250, 250)
