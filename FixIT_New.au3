@@ -46,7 +46,7 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 	; Reload
 	$ReloadImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Reload\Reload.jpg", 925, 10, 50, 50)
 	; Minmize
-	$MinmizeImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Minimize\Minimize.jpg", 925, 70, 50, 50)
+	$MinimizeImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\Minimize\Minimize.jpg", 925, 70, 50, 50)
 	; Southpark
 		; AlphaTG
 		$AlphaTGImage = GUICtrlCreatePic(@ScriptDir & "\assets\images\southpark\AlphaTG.jpg", 375, 320, 250, 250)
@@ -54,12 +54,12 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 
 ; Label
 	; Package	
-	$PackageLabel = GUICtrlCreateLabel("Package Installer", 150, 190, 150, 35)
+	$PackageLabel = GUICtrlCreateLabel("Package", 190, 190, 150, 35)
 		; Layout
 		GUICtrlSetColor($PackageLabel, $White)
 		GUICtrlSetFont($PackageLabel, 14, 800, "", "Arial")
 	; Functions
-		$FunctionsLabel = GUICtrlCreateLabel("Functions", 454, 190, 150, 35)
+		$FunctionsLabel = GUICtrlCreateLabel("Function", 454, 190, 150, 35)
 		; Layout
 		GUICtrlSetColor($FunctionsLabel, $White)
 		GUICtrlSetFont($FunctionsLabel, 14, 800, "", "Arial")
@@ -91,5 +91,7 @@ If Not RegRead($FixITRegistryFolder, $registryStandardKey) Then
 				Exit
 			Case $SettingsImage
 				SettingsGUI()
+			Case $MinimizeImage
+				MinimizeToSystemTray()
 		EndSwitch
 	WEnd
