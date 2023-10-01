@@ -73,6 +73,7 @@ EndFunc
 
 
 
+<<<<<<< HEAD
 Func MinimizeToSystemTray()
     ; Minimieren des aktuellen Fensters in die System-Symbolleiste
     WinSetState("[ACTIVE]", "", @SW_MINIMIZE)
@@ -88,6 +89,8 @@ EndFunc
 
 
 
+=======
+>>>>>>> c07bca6b58d061cb73530604cc27437b99ad0852
 
 Func UpdateAutoStartButtons()
     $AutoStartEntry = "FixIT"
